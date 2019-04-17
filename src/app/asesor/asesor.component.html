@@ -1,0 +1,91 @@
+<div class="container">
+  <h2>Gestionar asesor</h2>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">Crear asesor</div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input [(ngModel)]="asesor.id" type="text" class="form-control" id="crear-id" placeholder="Entre el id"
+              name="id">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="asesor.nombre" type="text" class="form-control" id="nombre"
+              placeholder="Entre el nombre" name="nombre">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="asesor.especialidad" type="text" class="form-control" id="especialidad"
+              placeholder="Entre la especialidad" name="especialidad">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="crearAsesor()">Crear</button>
+        </form>
+        <div>{{asesorCreado}}</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Buscar asesor</div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input [(ngModel)]="id_buscar_asesor" type="text" class="form-control" id="buscar-id"
+              placeholder="Entre el id" name="id">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="buscarAsesor()">Buscar</button>
+        </form>
+        <div *ngIf="info_asesor">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Especialidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{info_asesor.id}}</td>
+                <td>{{info_asesor.nombre}}</td>
+                <td>{{info_asesor.especialidad | uppercase}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>{{info_asesor_text}}</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Actualizar asesor</div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input [(ngModel)]="asesor_actualizar.id" type="text" class="form-control" id="actualizar-id"
+              placeholder="Entre el id" name="id">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="asesor_actualizar.nombre" type="text" class="form-control" id="actualizar-nombre"
+              placeholder="Entre el nombre" name="nombre">
+          </div>
+          <div class="form-group">
+              <input [(ngModel)]="asesor_actualizar.especialidad" type="text" class="form-control" id="actualizar-especialidad"
+                placeholder="Entre la especialidad" name="especialidad">
+            </div>
+          <button type="submit" class="btn btn-default" (click)="actualizarAsesor()">Actualizar</button>
+        </form>
+        <div>{{asesorActualizado}}</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Eliminar asesor</div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input [(ngModel)]="id_eliminar_asesor" type="text" class="form-control" id="eliminar-id"
+              placeholder="Entre el id" name="id">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="eliminarAsesor()">Eliminar</button>
+        </form>
+        <div>{{asesorEliminado}}</div>
+      </div>
+    </div>
+  </div>
+</div>

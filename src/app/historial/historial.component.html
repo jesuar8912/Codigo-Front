@@ -1,0 +1,79 @@
+<div class="container">
+  <h2>Historial de tarjetas</h2>
+  <p>A continuación se muestra el historial de consumo de la tarjeta </p>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">Datos del cliente</div>
+      <div class="panel-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Dirección</th>
+              <th>Teléfono</th>
+              <th>Ciudad</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{httpDt.clienteDto.id }}</td>
+              <td>{{httpDt.clienteDto.nombre | uppercase}}</td>
+              <td>{{httpDt.clienteDto.direccion | uppercase}}</td>
+              <td>{{httpDt.clienteDto.telefono}}</td>
+              <td>{{httpDt.clienteDto.ciudad | uppercase}}</td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Datos de la tarjeta</div>
+      <div class="panel-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tipo de tarjeta</th>
+              <th>Tarjeta</th>
+              <th>CVV</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{httpDt.tarjetaDto.id }}</td>
+              <td>{{httpDt.tarjetaDto.tipo | uppercase}}</td>
+              <td>{{httpDt.tarjetaDto.numero | formatoTarjeta}}</td>
+              <td>{{httpDt.tarjetaDto.ccv}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Historial de consumo</div>
+      <div class="panel-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Fecha</th>
+              <th>Descripción del consumo</th>
+              <th>Monto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let list of httpDt.listaConsumo">
+              <td>{{list.id}}</td>
+              <td>{{list.fecha | date}}</td>
+              <td>{{list.descripcion | uppercase}}</td>
+              <td>{{list.monto | currency}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+applications:
+- name: aplicacion-ibm-front
+  memory: 100M
+  random-route: true
+  disk_quota: 900M
+  buildpack: staticfile_buildpack

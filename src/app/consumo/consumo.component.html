@@ -1,0 +1,105 @@
+<div class="container">
+  <h2>Gestionar consumos</h2>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">Crear consumo</div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input [(ngModel)]="consumo.id" type="text" class="form-control" id="crear-id" placeholder="Entre el id"
+              name="id">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="consumo.descripcion" type="text" class="form-control" id="descripcion"
+              placeholder="Entre la descripción" name="descripcion">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="consumo.monto" type="text" class="form-control" id="monto" placeholder="Entre el monto"
+              name="monto">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="consumo.fecha" type="text" class="form-control" id="fecha"
+              placeholder="Fecha (aaaa-mm-dd)" name="fecha">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="id_tarjeta" type="text" class="form-control" id="idtarjeta"
+              placeholder="Entre el id de la tarjeta" name="idtarjeta">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="crearConsumo()">Crear</button>
+        </form>
+        <div>{{consumoCreado}}</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Buscar consumo</div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input [(ngModel)]="id_buscar_consumo" type="text" class="form-control" id="buscar-id"
+              placeholder="Entre el id" name="id">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="buscarConsumo()">Buscar</button>
+        </form>
+        <div *ngIf="info_consumo">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Descripción</th>
+                <th>Monto</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{info_consumo.id}}</td>
+                <td>{{info_consumo.descripcion}}</td>
+                <td>{{info_consumo.monto | currency}}</td>
+                <td>{{info_consumo.fecha | date }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>{{info_consumo_text}}</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Actualizar consumo</div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input [(ngModel)]="consumo_actualizar.id" type="text" class="form-control" id="actualizar-id"
+              placeholder="Entre el id" name="id">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="consumo_actualizar.monto" type="text" class="form-control" id="actualizar-monto"
+              placeholder="Entre el monto" name="monto">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="consumo_actualizar.descripcion" type="text" class="form-control"
+              id="actualizar-descripcion" placeholder="Entre la descripción" name="descripcion">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="consumo_actualizar.fecha" type="text" class="form-control" id="actualizar-fecha"
+              placeholder="Fecha (aaaa-mm-dd)" name="fecha">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="actualizarConsumo()">Actualizar</button>
+        </form>
+        <div>{{consumoActualizado}}</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Eliminar consumo</div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input [(ngModel)]="id_eliminar_consumo" type="text" class="form-control" id="eliminar-id"
+              placeholder="Entre el id" name="id">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="eliminarConsumo()">Eliminar</button>
+        </form>
+        <div>{{consumoEliminado}}</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,111 @@
+<div class="container">
+  <h2>Gestionar clientes</h2>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">Crear cliente</div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input [(ngModel)]="usuario.id" type="text" class="form-control" id="crear-id" placeholder="Entre el id"
+              name="id">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="usuario.nombre" type="text" class="form-control" id="nombre"
+              placeholder="Entre el nombre" name="nombre">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="usuario.direccion" type="text" class="form-control" id="direccion"
+              placeholder="Entre la dirección" name="direccion">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="usuario.ciudad" type="text" class="form-control" id="ciudad"
+              placeholder="Entre la ciudad" name="ciudad">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="usuario.telefono" type="text" class="form-control" id="telefono"
+              placeholder="Entre el teléfono" name="telefono">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="crearUsuario()">Crear</button>
+        </form>
+        <div>{{usuarioCreado}}</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Buscar cliente</div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input [(ngModel)]="id_buscar_usuario" type="text" class="form-control" id="buscar-id"
+              placeholder="Entre el id" name="id">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="buscarUsuario()">Buscar</button>
+        </form>
+        <div *ngIf="info_usuario">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Ciudad</th>
+                <th>Teléfono</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{info_usuario.id}}</td>
+                <td>{{info_usuario.nombre}}</td>
+                <td>{{info_usuario.direccion}}</td>
+                <td>{{info_usuario.ciudad }}</td>
+                <td>{{info_usuario.telefono }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>{{info_usuario_text}}</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Actualizar cliente</div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input [(ngModel)]="usuario_actualizar.id" type="text" class="form-control" id="actualizar-id"
+              placeholder="Entre el id" name="id">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="usuario_actualizar.nombre" type="text" class="form-control" id="actualizar-nombre"
+              placeholder="Entre el nombre" name="nombre">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="usuario_actualizar.direccion" type="text" class="form-control" id="actualizar-direccion"
+              placeholder="Entre la dirección" name="direccion">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="usuario_actualizar.ciudad" type="text" class="form-control" id="actualizar-ciudad"
+              placeholder="Entre la ciudad" name="ciudad">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="usuario_actualizar.telefono" type="text" class="form-control" id="actualizar-telefono"
+              placeholder="Entre el teléfono" name="telefono">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="actualizarUsuario()">Actualizar</button>
+        </form>
+        <div>{{usuarioActualizado}}</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Eliminar cliente</div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input [(ngModel)]="id_eliminar_usuario" type="text" class="form-control" id="eliminar-id"
+              placeholder="Entre el id" name="id">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="eliminarUsuario()">Eliminar</button>
+        </form>
+        <div>{{usuarioEliminado}}</div>
+      </div>
+    </div>
+  </div>
+</div>

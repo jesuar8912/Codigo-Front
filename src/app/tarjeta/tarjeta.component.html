@@ -1,0 +1,105 @@
+<div class="container">
+  <h2>Gestionar tarjetas</h2>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">Crear tarjeta</div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input [(ngModel)]="tarjeta.id" type="text" class="form-control" id="crear-id" placeholder="Entre el id"
+              name="id">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="tarjeta.numero" type="text" class="form-control" id="numero"
+              placeholder="Entre el número" name="numero">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="tarjeta.ccv" type="text" class="form-control" id="direccion" placeholder="Entre el ccv"
+              name="ccv">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="tarjeta.tipo" type="text" class="form-control" id="ciudad" placeholder="Entre el tipo"
+              name="tipo">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="id_cliente" type="text" class="form-control" id="idcliente"
+              placeholder="Entre el id del cliente" name="idcliente">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="crearTarjetaCliente()">Crear</button>
+        </form>
+        <div>{{tarjetaCreado}}</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Buscar tarjeta</div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input [(ngModel)]="id_buscar_tarjeta" type="text" class="form-control" id="buscar-id"
+              placeholder="Entre el id" name="id">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="buscarTarjeta()">Buscar</button>
+        </form>
+        <div *ngIf="info_tarjeta">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Número</th>
+                <th>Tipo</th>
+                <th>CCV</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{info_tarjeta.id}}</td>
+                <td>{{info_tarjeta.numero | formatoTarjeta}}</td>
+                <td>{{info_tarjeta.tipo}}</td>
+                <td>{{info_tarjeta.ccv }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>{{info_tarjeta_text}}</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Actualizar tarjeta</div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input [(ngModel)]="tarjeta_actualizar.id" type="text" class="form-control" id="actualizar-id"
+              placeholder="Entre el id" name="id">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="tarjeta_actualizar.numero" type="text" class="form-control" id="actualizar-numero"
+              placeholder="Entre el número" name="numero">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="tarjeta_actualizar.ccv" type="text" class="form-control" id="actualizar-ccv"
+              placeholder="Entre el ccv" name="ccv">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="tarjeta_actualizar.tipo" type="text" class="form-control" id="actualizar-tipo"
+              placeholder="Entre el tipo" name="tipo">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="actualizarTarjeta()">Actualizar</button>
+        </form>
+        <div>{{tarjetaActualizado}}</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Eliminar tarjeta</div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input [(ngModel)]="id_eliminar_tarjeta" type="text" class="form-control" id="eliminar-id"
+              placeholder="Entre el id" name="id">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="eliminarTarjeta()">Eliminar</button>
+        </form>
+        <div>{{tarjetaEliminado}}</div>
+      </div>
+    </div>
+  </div>
+</div>

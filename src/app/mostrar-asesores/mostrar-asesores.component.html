@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>Lista de asesores</h2>
+    <p>A continuación se listan todos los asesores:</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Especialidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of httpDt">
+                <td>{{data.id}}</td>
+                <td>{{data.nombre | uppercase}}</td>
+                <td>{{data.especialidad | uppercase}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

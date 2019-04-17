@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Lista de clientes</h2>
+    <p>A continuación se listan todos los clientes:</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Direccion</th>
+                <th>Ciudad</th>
+                <th>Telefono</th>
+                <th>Tarjetas asociadas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of httpData">
+                <td>{{data.id}}</td>
+                <td>{{data.nombre | uppercase}}</td>
+                <td>{{data.direccion | uppercase}}</td>
+                <td>{{data.ciudad | uppercase}}</td>
+                <td>{{data.telefono}}</td>
+                <td>
+            <tr *ngFor="let num of data.tarjetaList"><a href="#"
+                    routerLink="historial/:{{num.numero}}">{{num.numero | formatoTarjeta}}</a></tr>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
